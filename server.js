@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const PORT = 8000;
+const product = require('/api/product')
 
 app.use(cors())
+app.use(express.json({extended: false}))
+app.use('/api/product', product)
 
 const divas = {
     'lady gaga': {
@@ -568,7 +571,6 @@ const divas = {
 
 app.get('/', (request, response) =>{
     response.sendFile(__dirname + '/index.html')
-    console.log(response.json(divas[divasName]))
 })
 
 app.get('/api/:name', (request, response) =>{
