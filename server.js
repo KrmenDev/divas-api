@@ -568,12 +568,14 @@ const divas = {
 
 app.get('/', (request, response) =>{
     response.sendFile(__dirname + '/index.html')
+    console.log(response.json(divas[divasName]))
 })
 
 app.get('/api/:name', (request, response) =>{
    const divasName = request.params.name.toLowerCase()
    if(divas[divasName]){
         response.json(divas[divasName])
+        
    }else{
         response.json(divas['unknown'])
    }
