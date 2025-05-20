@@ -5,8 +5,6 @@ const PORT = 8000;
 const product = require('/api/product')
 
 app.use(cors())
-app.use(express.json({extended: false}))
-app.use('/api/product', product)
 
 const divas = {
     'lady gaga': {
