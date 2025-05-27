@@ -571,7 +571,7 @@ app.get('/', (request, response) =>{
     response.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:name', (request, response) =>{
+app.get('/api/:divasName', (request, response) =>{
    const divasName = request.params.name.toLowerCase()
    if(divas[divasName]){
         response.json(divas[divasName])
